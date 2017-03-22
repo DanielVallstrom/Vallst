@@ -1,0 +1,34 @@
+Vallst is a solver for problems with boolean variables. You can use it either
+through its reentrant API, vallstAPI.h, or its standalone variant, vallst.
+
+Vallst is distributed under the terms of the Reciprocal Public License RPL.
+See the file LICENSE.
+
+This software is OSI Certified Open Source Software.
+OSI Certified is a certification mark of the Open Source Initiative.
+
+To install vallst, see the file INSTALL.
+
+Known problems: Linux stack overflow
+The startup phase when running the solver involves the use of a recursive
+function. If the stack size is small, which it is by default for some reason
+on Linux systems (10MB), the solver might run out of stack memory and segfault
+on very large problems. Hence you might want to increase the stack size a bit.
+Under Linux you can run ulimit. "ulimit -s 30000" will set the size to about
+30MB. "ulimit -a" lists the size.
+
+If you generated documentation using doxygen during the installation, that
+documentation can be found at docs/html/index.html and at
+docs/latex/refman.[dvi|pdf|ps] if you used latex. (Documentation will be
+generated if you follow the default installation procedure (by "make") or by
+running e.g. "make -k doc".)
+
+The intentions are to maintain vallst to be as fast and robust as possible, 
+improving it by implementing any new good idea, and to include into the API
+any useful functionality.
+
+Comments, suggestions, bug reports etc. are welcome.
+
+
+Daniel Vallstrom
+daniel.vallstrom@gmail.com
